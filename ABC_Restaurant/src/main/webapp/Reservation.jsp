@@ -21,7 +21,7 @@
             color: #222;
         }
 
-       /* Navigation Styles */
+        /* Navigation Styles */
         nav {
             background-color: #34495e;
             padding: 15px;
@@ -141,8 +141,6 @@
             background-color: #2ecc71;
         }
 
-
-
         /* Reservation Form Styles */
         .reservation-form {
             max-width: 800px;
@@ -228,17 +226,16 @@
 <body>
     <nav>
         <ul>
-            <li><a href="home.jsp">Home</a></li>
-            <li><a href="#">Menu</a></li>
-           
-            <li><a href="#">About Us</a></li>
+            <li><a href="Home.jsp">Home</a></li>
+            <li><a href="Menu.jsp">Menu</a></li>
+            <li><a href="AboutUs.jsp">About Us</a></li>
             <li class="dropdown">
                 <a href="#">Services</a>
                 <div class="dropdown-content">
-                    <a href="#">Order</a>
+                    <a href="Order.jsp">Order</a>
                     <a href="Reservation.jsp">Reservation</a>
-                    <a href="#">Delivery</a>
-                    <a href="#">Other</a>
+                    <a href="Delivery.jsp">Delivery</a>
+                    <a href="OtherServices.jsp">Other</a>
                 </div>
             </li>
             <li class="dropdown">
@@ -246,7 +243,7 @@
                 <div class="dropdown-content">
                     <a href="#">Gallery</a>
                     <a href="#">Events</a>
-                    <a href="#">Contact</a>
+                    <a href="Contact.jsp">Contact</a>
                 </div>
             </li>
         </ul>

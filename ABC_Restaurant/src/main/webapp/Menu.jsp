@@ -1,356 +1,136 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ABC Restaurant - Menu</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="menu.css">
-    <link rel="stylesheet" href="mobile.css">
+    <style>
+        /* Include the same styles as in Home.jsp */
 
-</head>
-<body>
-    
-    <input type="checkbox" id="mobile-menu-toggle">
-    <label for="mobile-menu-toggle" id="mobile-icon">&#9776;</label>
-    <nav>
-        <ul>
-            <li><a href="Home.jsp">Home</a></li>
-            <li><a href="#">Menu</a></li>
-           
-            <li><a href="#">About Us</a></li>
-            <li class="dropdown">
-                <a href="#">Services</a>
-                <div class="dropdown-content">
-                    <a href="#">Order</a>
-                    <a href="Reservation.jsp">Reservation</a>
-                    <a href="#">Delivery</a>
-                    <a href="#">Other</a>
-                </div>
-            </li>
-            <li class="dropdown">
-                <a href="#">More</a>
-                <div class="dropdown-content">
-                    <a href="#">Gallery</a>
-                    <a href="#">Events</a>
-                    <a href="#">Contact</a>
-                </div>
-            </li>
-        </ul>
-        <div class="nav-search">
-            <input type="text" placeholder="Search...">
-            <button>Search</button>
-        </div>
-    </nav>
-    <header>
-        <h1>ABC Restaurant - Menu </h1>
-    </header>
-   
-    
+        /* Reset Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <div class="menu-container">
-        <div class="menu-container">
-            <div class="food-item">
-                <img src="menuIMG/ukrainian-dill-potatoes.jpg" alt="Burger">
-                <div class="details">
-                    <h3>Ukrainian Potatoes</h3>
-                    <p>A comforting delight in Ukrainian cuisine, often enjoyed as crispy "Deruny" potato. </p>
-                    <div class="details-sub">
-                        <span class="price">$20</span>
-                        <a href="order.html"> <button>Order</button> </a>
-                        
-                    </div>
-                </div>
-            </div>
+        /* General Styles */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f0f0f0;
+            color: #444;
+            line-height: 1.6;
+        }
 
-        <<div class="food-item">
-            <img src="menuIMG/bread &eggs.jpg" alt="Burger">
-            <div class="details">
-                <h3>Bread &eggs</h3>
-                <p>Savor our classic pairing: artisanal bread and farm-fresh eggs, a breakfast masterpiece.</p>
-                <div class="details-sub">
-                    <span class="price">$15</span>
-                    <a href="order.html"> <button>Order</button> </a>
-                </div>
-            </div>
-        </div>
-        <div class="food-item">
-            <img src="menuIMG/eclair.jpg" alt="Burger">
-            <div class="details">
-                <h3>Eclair</h3>
-                <p> Elegant pastry filled with velvety cream, a sweet indulgence for delightful moments.</p>
-                <div class="details-sub">
-                    <span class="price">$8</span>
-                    <a href="order.html"> <button>Order</button> </a>
-                </div>
-            </div>
-        </div>
-        <div class="food-item">
-            <img src="menuIMG/fried-rice.jpg" alt="Burger">
-            <div class="details">
-                <h3>Fried-rice</h3>
-                <p>Stir-fried perfection, a symphony of flavors with fresh veggies and savory spices.</p>
-                <div class="details-sub">
-                    <span class="price">$13</span>
-                    <a href="order.html"> <button>Order</button> </a>
-                </div>
-            </div>
-        </div>
-        <div class="food-item">
-            <img src="menuIMG/Healthy bowl.jpg" alt="Burger">
-            <div class="details">
-                <h3>Healthy bowl</h3>
-                <p> Wholesome goodness in a bowl, a vibrant medley of nutritious ingredients.</p>
-                <div class="details-sub">
-                    <span class="price">$9</span>
-                    <a href="order.html"> <button>Order</button> </a>
-                </div>
-            </div>
-        </div>
-        <div class="food-item">
-            <img src="menuIMG/kimchi-fried.jpg" alt="Burger">
-            <div class="details">
-                <h3>Kimchi-fried</h3>
-                <p> A zesty twist to fried rice, blending the bold flavors of kimchi for a unique experience.</p>
-                <div class="details-sub">
-                    <span class="price">$11</span>
-                    <a href="order.html"> <button>Order</button> </a>
-                </div>
-            </div>
-        </div>
-        <div class="food-item">
-            <img src="menuIMG/pancakes with honey&berries copy.jpg" alt="Pancakes">
-            <div class="details">
-                <h3>Pancakes with honey </h3>
-                <p> Fluffy pancakes drizzled with golden honey, a sweet start or delightful dessert.</p>
-                <div class="details-sub">
-                    <span class="price">$9</span>
-                    <a href="order.html"> <button>Order</button> </a>
-                </div>
-            </div>
-        </div>
-        <div class="food-item">
-            <img src="menuIMG/pasta.jpg" alt="Burger">
-            <div class="details">
-                <h3>Pasta</h3>
-                <p>: Al dente pasta, bathed in rich, flavorful sauces, a classic Italian indulgence.</p>
-                <div class="details-sub">
-                    <span class="price">$20</span>
-                    <a href="order.html"> <button>Order</button> </a>
-                </div>
-            </div>
-        </div>
-        <div class="food-item">
-            <img src="menuIMG/roasted chicken.jpg" alt="Burger">
-            <div class="details">
-                <h3>Roasted chicken</h3>
-                <p>Juicy, succulent chicken, perfectly roasted for an exquisite dining experience.</p>
-                <div class="details-sub">
-                    <span class="price">$15</span>
-                    <a href="order.html"> <button>Order</button> </a>
-                </div>
-            </div>
-        </div>
-        <div class="food-item">
-            <img src="menuIMG/salmon dish.jpg" alt="Burger">
-            <div class="details">
-                <h3>Salmon dish</h3>
-                <p> Grilled or baked salmon, a delectable choice for seafood enthusiasts, rich in omega-3.</p>
-                <div class="details-sub">
-                    <span class="price">$15</span>
-                    <a href="order.html"> <button>Order</button> </a>
-                </div>
-            </div>
-        </div>
-        <div class="food-item">
-            <img src="menuIMG/Thai chicken soup.jpg" alt="Burger">
-            <div class="details">
-                <h3>Thai chicken soup</h3>
-                <p>A comforting bowl of aromatic Thai spices and tender chicken, a soul-soothing delight.</p>
-                <div class="details-sub">
-                    <span class="price">$9</span>
-                    <a href="order.html"> <button>Order</button> </a>
-                </div>
-            </div>
-        </div>
-        <div class="food-item">
-            <img src="menuIMG/yellow rice.jpg" alt="Burger">
-            <div class="details">
-                <h3>Yellow rice</h3>
-                <p> Fragrant, turmeric-infused rice, a vibrant accompaniment to elevate your meal.</p>
-                <div class="details-sub">
-                    <span class="price">$12</span>
-                    <a href="order.html"> <button>Order</button> </a>
-                </div>
-            </div>
-        </div>
-        <div class="food-item">
-            <img src="menuIMG/vege salad.jpg" alt="Burger">
-            <div class="details">
-                <h3>Vege salad</h3>
-                <p> Crisp, fresh veggies harmonize in a colorful, healthy salad, a burst of flavors.</p>
-                <div class="details-sub">
-                    <span class="price">$5</span>
-                    <a href="order.html"> <button>Order</button> </a>
-                </div>
-            </div>
-        </div>
-        <div class="food-item">
-            <img src="menuIMG/special breakfast dish.jpg" alt="Burger">
-            <div class="details">
-                <h3>Special breakfast dish</h3>
-                <p> A chef's delight, a breakfast masterpiece crafted with love and unique flavors.</p>
-                <div class="details-sub">
-                    <span class="price">$8</span>
-                    <a href="order.html"> <button>Order</button> </a>
-                </div>
-            </div>
-        </div>
-        <div class="food-item">
-            <img src="menuIMG/strawberry-dessert.jpg" alt="Burger">
-            <div class="details">
-                <h3>Strawberry-dessert</h3>
-                <p> Luscious strawberry sweetness, a delightful finale to your dining experience.</p>
-                <div class="details-sub">
-                    <span class="price">$5</span>
-                    <a href="order.html"> <button>Order</button> </a>
-                </div>
-            </div>
-        </div>
-        <div class="food-item">
-            <img src="menuIMG/meatballs.jpg" alt="Burger">
-            <div class="details">
-                <h3>Meatballs</h3>
-                <p>Savory spheres of perfection, a hearty and satisfying choice for meat lovers.</p>
-                <div class="details-sub">
-                    <span class="price">$10</span>
-                    <a href="order.html"> <button>Order</button> </a>
-                </div>
-            </div>
-        </div>
-        <<div class="food-item">
-            <img src="menuIMG/bread &eggs.jpg" alt="Burger">
-            <div class="details">
-                <h3>Bread &eggs</h3>
-                <p>Savor our classic pairing: artisanal bread and farm-fresh eggs, a breakfast masterpiece.</p>
-                <div class="details-sub">
-                    <span class="price">$15</span>
-                    <a href="order.html"> <button>Order</button> </a>
-                </div>
-            </div>
-        </div>
-        <div class="food-item">
-            <img src="menuIMG/eclair.jpg" alt="Burger">
-            <div class="details">
-                <h3>Eclair</h3>
-                <p> Elegant pastry filled with velvety cream, a sweet indulgence for delightful moments.</p>
-                <div class="details-sub">
-                    <span class="price">$8</span>
-                    <a href="order.html"> <button>Order</button> </a>
-                </div>
-            </div>
-        </div>
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
 
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Merriweather', serif;
+            color: #222;
+        }
 
-    </div>
-    
+        p {
+            margin-bottom: 1em;
+        }
 
-    
-</body>
+        /* Navigation Styles */
+        nav {
+            background-color: #34495e;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
+        nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
 
+        nav ul li {
+            margin: 0 20px;
+            position: relative;
+        }
 
-<style>
-    h1{
-        color: black;
-    }
-    body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f5;
-}
+        nav ul li a {
+            color: #ecf0f1;
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
 
-header {
-    background-color: #333;
-    color: rgb(11, 0, 0);
-    text-align: center;
-    padding: 15px;
-}
+        nav ul li a:hover {
+            color: #e67e22;
+        }
 
-.menu-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin: 20px;
-}
+        nav ul li::after {
+            content: "";
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #e67e22;
+            transition: width 0.3s;
+            margin-top: 5px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-.food-item {
-    position: relative;
-    overflow: hidden;
-    width: 300px;
-    height: 400px;
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    margin: 20px;
-    transition: transform 0.3s ease-in-out;
-}
+        nav ul li:hover::after {
+            width: 50%;
+        }
 
-.food-item:hover {
-    transform: scale(1.05);
-}
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+        }
 
-.food-item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 15px 15px 0 0;
-}
+        .dropdown > a::after {
+            content: ' ▼';
+            font-size: 12px;
+            color: #ecf0f1;
+            margin-left: 5px;
+        }
 
-.details {
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 0 0 15px 15px;
-}
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #34495e;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 12px 16px;
+            z-index: 1000;
+            border-radius: 5px;
+        }
 
-.details h3 {
-    margin: 0 0 10px;
-    font-size: 1.5em;
-    color: #333;
-}
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
 
-.details p {
-    color: #555;
-}
+        .dropdown-content a {
+            color: #ecf0f1;
+            padding: 10px 20px;
+            display: block;
+            text-align: left;
+            transition: background-color 0.3s;
+        }
 
-.details-sub {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        .dropdown-content a:hover {
+            background-color: #e67e22;
+            border-radius: 5px;
+        }
 
-.price {
-    color: #27ae60;
-    font-weight: bold;
-    font-size: 1.2em;
-}
-
-button {
-    padding: 10px 15px;
-    background-color: #27ae60;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #218c53;
-}
-/* Search Bar in Navigation */
+        /* Search Bar in Navigation */
         .nav-search {
             display: flex;
             align-items: center;
@@ -380,6 +160,165 @@ button:hover {
             background-color: #2ecc71;
         }
 
-    
-</style>
+        /* Menu Page Specific Styles */
+        .menu-section {
+            background-color: #fff;
+            padding: 60px 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .menu-section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .menu-section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .menu-item h3 {
+            font-size: 1.5em;
+            color: #e67e22;
+        }
+
+        .menu-item p {
+            font-size: 1em;
+            color: #555;
+        }
+
+        .menu-item .price {
+            font-size: 1.2em;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        footer p {
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
+
+        footer a {
+            color: #e67e22;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #f39c12;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="Home.jsp">Home</a></li>
+            <li><a href="Menu.jsp">Menu</a></li>
+            
+            <li><a href="AboutUs.jsp">About Us</a></li>
+            <li class="dropdown">
+                <a href="#">Services</a>
+                <div class="dropdown-content">
+                    <a href="Order.jsp">Order</a>
+                    <a href="Reservation.jsp">Reservation</a>
+                    <a href="delivery.jsp">Delivery</a>
+                    <a href="OtherServices.JSP">Other</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#">More</a>
+                <div class="dropdown-content">
+                    <a href="#">Gallery</a>
+                    <a href="#">Events</a>
+                    <a href="Contact.jsp">Contact</a>
+                </div>
+            </li>
+        </ul>
+        <div class="nav-search">
+            <input type="text" placeholder="Search...">
+            <button>Search</button>
+        </div>
+    </nav>
+
+    <section class="menu-section">
+        <h2>Our Menu</h2>
+        
+        <div class="menu-item">
+            <div>
+                <h3>Grilled Chicken Salad</h3>
+                <p>Fresh greens topped with grilled chicken, served with a light vinaigrette.</p>
+            </div>
+            <div class="price">$12.99</div>
+        </div>
+
+        <div class="menu-item">
+            <div>
+                <h3>Spaghetti Carbonara</h3>
+                <p>Classic Italian pasta with creamy sauce, pancetta, and parmesan cheese.</p>
+            </div>
+            <div class="price">$14.99</div>
+        </div>
+
+        <div class="menu-item">
+            <div>
+                <h3>Margherita Pizza</h3>
+                <p>Traditional pizza with fresh tomatoes, mozzarella cheese, and basil.</p>
+            </div>
+            <div class="price">$10.99</div>
+        </div>
+
+        <div class="menu-item">
+            <div>
+                <h3>Beef Burger</h3>
+                <p>Juicy beef patty with lettuce, tomato, cheese, and special sauce.</p>
+            </div>
+            <div class="price">$11.99</div>
+        </div>
+
+        <div class="menu-item">
+            <div>
+                <h3>Chocolate Lava Cake</h3>
+                <p>Rich chocolate cake with a gooey center, served with vanilla ice cream.</p>
+            </div>
+            <div class="price">$7.99</div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 ABC Restaurant. All rights reserved.</p>
+        <p><a href="Contact.jsp">Contact Us</a> | <a href="Privacy.jsp">Privacy Policy</a></p>
+    </footer>
+
+</body>
+
 </html>

@@ -5,10 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABC Restaurant - Order</title>
+    <title>ABC Restaurant - Delivery</title>
     <style>
-        /* Include the same styles as in Home.jsp */
-
         /* Reset Styles */
         * {
             margin: 0;
@@ -158,70 +156,62 @@
             background-color: #2ecc71;
         }
 
-        /* Order Page Specific Styles */
-        .order-section {
+        /* Section Styles */
+        .section {
             background-color: #fff;
             padding: 60px 20px;
             margin: 20px 0;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
             transition: transform 0.3s, box-shadow 0.3s;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
-        .order-section:hover {
+        .section:hover {
             transform: translateY(-10px);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
-        .order-section h2 {
+        .section h2 {
             font-size: 2em;
             margin-bottom: 20px;
+            color: #34495e;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Delivery Information */
+        .delivery-info {
+            max-width: 800px;
+            margin: 0 auto;
             text-align: center;
         }
 
-        .order-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
+        .delivery-info h3 {
+            font-size: 1.5em;
+            color: #34495e;
+            margin-bottom: 15px;
         }
 
-        .order-form {
-            width: 100%;
-            max-width: 600px;
+        .delivery-info ul {
+            list-style: none;
+            padding: 0;
             margin: 20px 0;
         }
 
-        .order-form input[type="text"],
-        .order-form input[type="email"],
-        .order-form input[type="number"],
-        .order-form select,
-        .order-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            font-size: 16px;
+        .delivery-info ul li {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            color: #555;
         }
 
-        .order-form button {
-            background-color: #27ae60;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: background-color 0.3s;
-            margin-top: 20px;
-        }
-
-        .order-form button:hover {
-            background-color: #2ecc71;
+        .delivery-info ul li::before {
+            content: '✔';
+            color: #27ae60;
+            margin-right: 10px;
         }
 
         /* Footer Styles */
@@ -252,6 +242,7 @@
 
 <body>
 
+    <!-- Navigation -->
     <nav>
         <ul>
             <li><a href="Home.jsp">Home</a></li>
@@ -281,30 +272,32 @@
         </div>
     </nav>
 
-    <section class="order-section">
-        <h2>Place Your Order</h2>
-        <div class="order-content">
-            <form class="order-form" action="ProcessOrder.jsp" method="post">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <input type="text" name="phone" placeholder="Your Phone Number" required>
-                <select name="foodItem" required>
-                    <option value="" disabled selected>Select a Dish</option>
-                    <option value="dish1">Dish 1</option>
-                    <option value="dish2">Dish 2</option>
-                    <option value="dish3">Dish 3</option>
-                    <!-- Add more dishes as needed -->
-                </select>
-                <textarea name="address" rows="5" placeholder="Delivery Address" required></textarea>
-                <input type="number" name="quantity" placeholder="Quantity" required min="1">
-                <button type="submit">Submit Order</button>
-            </form>
-        </div>
+    <!-- Delivery Section -->
+    <section class="section delivery-info">
+        <h2>Delivery Information</h2>
+        <h3>Fast and Reliable Delivery</h3>
+        <p>Enjoy quick and reliable delivery from ABC Restaurant! Our service ensures that your meals arrive fresh and hot at your doorstep, no matter where you are in the city.</p>
+
+        <h3>Delivery Areas</h3>
+        <ul>
+            <li>Colombo 1-15</li>
+            <li>Dehiwala</li>
+            <li>Mount Lavinia</li>
+            <li>Nugegoda</li>
+            <!-- Add more areas as needed -->
+        </ul>
+
+        <h3>Delivery Times</h3>
+        <p>Our delivery service is available from 10:00 AM to 10:00 PM, every day of the week. Enjoy your favorite meals at any time, delivered right to your door.</p>
+
+        <h3>Contactless Delivery</h3>
+        <p>We prioritize your safety with our contactless delivery option. Request this service when you place your order, and we'll ensure a safe and secure delivery experience.</p>
     </section>
 
+    <!-- Footer -->
     <footer>
         <p>&copy; 2024 ABC Restaurant. All rights reserved.</p>
-        <p><a href="Contact.jsp">Contact Us</a> | <a href="PrivacyPolicy.jsp">Privacy Policy</a> | <a href="TermsConditions.jsp">Terms & Conditions</a></p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
     </footer>
 
 </body>
