@@ -214,6 +214,20 @@
             margin-right: 10px;
         }
 
+        /* Image Styles */
+        .service-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
         /* Footer Styles */
         footer {
             background-color: #2c3e50;
@@ -278,17 +292,29 @@
         <h3>Explore Our Additional Services</h3>
         <p>At ABC Restaurant, we offer a variety of additional services to make your dining experience even better. Check out our special offerings and how we can cater to your needs.</p>
 
-        <h3>Event Catering</h3>
-        <p>Let us take care of your next event with our exceptional catering services. From intimate gatherings to large celebrations, we provide delicious food and excellent service.</p>
+        <div class="service">
+            <img src="images/event_catering.jpg" alt="Event Catering" class="service-image">
+            <h3>Event Catering</h3>
+            <p>Let us take care of your next event with our exceptional catering services. From intimate gatherings to large celebrations, we provide delicious food and excellent service.</p>
+        </div>
 
-        <h3>Corporate Events</h3>
-        <p>Organize your corporate events with us and enjoy a seamless dining experience. We offer customized menus and services to suit your business needs.</p>
+        <div class="service">
+            <img src="images/corporate-events.jpg" alt="Corporate Events" class="service-image">
+            <h3>Corporate Events</h3>
+            <p>Organize your corporate events with us and enjoy a seamless dining experience. We offer customized menus and services to suit your business needs.</p>
+        </div>
 
-        <h3>Special Occasions</h3>
-        <p>Celebrate birthdays, anniversaries, and other special occasions at ABC Restaurant. We can help make your celebration memorable with our unique dining experiences.</p>
+        <div class="service">
+            <img src="images/special-occasions.jpg" alt="Special Occasions" class="service-image">
+            <h3>Special Occasions</h3>
+            <p>Celebrate birthdays, anniversaries, and other special occasions at ABC Restaurant. We can help make your celebration memorable with our unique dining experiences.</p>
+        </div>
 
-        <h3>Private Dining</h3>
-        <p>Enjoy a private dining experience with your loved ones in a dedicated space. Perfect for family gatherings or intimate dinners.</p>
+        <div class="service">
+            <img src="images/private-dining.jpg" alt="Private Dining" class="service-image">
+            <h3>Private Dining</h3>
+            <p>Enjoy a private dining experience with your loved ones in a dedicated space. Perfect for family gatherings or intimate dinners.</p>
+        </div>
     </section>
 
     <!-- Footer -->

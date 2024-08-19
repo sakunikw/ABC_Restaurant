@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABC Restaurant - Reservation</title>
+    <title>ABC Restaurant - Gallery</title>
     <style>
         /* Reset Styles */
         * {
@@ -156,61 +156,64 @@
             background-color: #2ecc71;
         }
 
-        /* Reservation Section Styles */
-        .reservation {
+        /* Gallery Section Styles */
+        .gallery {
             padding: 60px 20px;
             background-color: #fff;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin: 20px auto;
-            max-width: 800px;
+            max-width: 1200px;
             border-radius: 10px;
         }
 
-        .reservation h2 {
+        .gallery h2 {
             font-size: 2em;
             color: #34495e;
             margin-bottom: 20px;
             text-align: center;
         }
 
-        .reservation form {
-            display: flex;
-            flex-direction: column;
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            justify-items: center;
         }
 
-        .reservation label {
-            margin-bottom: 5px;
-            font-weight: bold;
-            color: #34495e;
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .reservation input, .reservation select, .reservation textarea {
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
-        .reservation button {
-            background-color: #27ae60;
-            color: white;
-            border: none;
-            padding: 12px;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: background-color 0.3s;
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
-        .reservation button:hover {
-            background-color: #2ecc71;
-        }
-
-        .reservation .confirmation {
-            margin-top: 20px;
+        .gallery-item .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
             text-align: center;
-            font-size: 1.1em;
-            color: #27ae60;
+            padding: 10px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-item:hover .caption {
+            opacity: 1;
         }
 
         /* Footer Styles */
@@ -271,48 +274,39 @@
         </div>
     </nav>
 
-    <!-- Reservation Section -->
-    <section class="reservation">
-        <h2>Table Reservation</h2>
-        <form action="submit_reservation.jsp" method="post">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" name="phone" required>
-
-            <label for="date">Reservation Date:</label>
-            <input type="date" id="date" name="date" required>
-
-            <label for="time">Reservation Time:</label>
-            <input type="time" id="time" name="time" required>
-
-            <label for="guests">Number of Guests:</label>
-            <select id="guests" name="guests" required>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="more">More than 10</option>
-            </select>
-
-            <label for="special-requests">Special Requests:</label>
-            <textarea id="special-requests" name="special_requests" rows="4"></textarea>
-
-            <button type="submit">Reserve Table</button>
-        </form>
-        <div class="confirmation">
-            <!-- This section can be populated dynamically after form submission -->
-            <p>Your reservation request has been submitted. We will contact you soon to confirm.</p>
+    <!-- Gallery Section -->
+    <section class="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="images/gallery1.jpg" alt="Gallery Image 1">
+                <div class="caption">Delicious Dishes</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/gallery2.jpg" alt="Gallery Image 2">
+                <div class="caption">Elegant Dining</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/gallery3.jpg" alt="Gallery Image 3">
+                <div class="caption">Cozy Atmosphere</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/gallery4.jpg" alt="Gallery Image 4">
+                <div class="caption">Special Events</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/gallery4.jpg" alt="Gallery Image 4">
+                <div class="caption">Special Events</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/gallery4.jpg" alt="Gallery Image 4">
+                <div class="caption">Special Events</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/gallery4.jpg" alt="Gallery Image 4">
+                <div class="caption">Special Events</div>
+            </div>
+            <!-- Add more gallery items as needed -->
         </div>
     </section>
 

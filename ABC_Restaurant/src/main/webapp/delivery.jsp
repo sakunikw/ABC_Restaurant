@@ -253,7 +253,7 @@
                 <div class="dropdown-content">
                     <a href="Order.jsp">Order</a>
                     <a href="Reservation.jsp">Reservation</a>
-                    <a href="Delivery.jsp">Delivery</a>
+                    <a href="delivery.jsp">Delivery</a>
                     <a href="OtherServices.jsp">Other</a>
                 </div>
             </li>

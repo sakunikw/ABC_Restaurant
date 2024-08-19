@@ -16,6 +16,12 @@
   	<description></description>
   	<servlet-class>com.RestaurantController.UserController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>SearchServlet</servlet-name>
+  	<display-name>SearchServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.RestaurantController.SearchServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>AdminController</servlet-name>
   	<url-pattern>/AdminController</url-pattern>
@@ -23,5 +29,9 @@
   <servlet-mapping>
   	<servlet-name>UserController</servlet-name>
   	<url-pattern>/UserController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SearchServlet</servlet-name>
+  	<url-pattern>/SearchServlet</url-pattern>
   </servlet-mapping>
 </web-app>

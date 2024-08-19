@@ -252,13 +252,13 @@
                     <a href="Order.jsp">Order</a>
                     <a href="Reservation.jsp">Reservation</a>
                     <a href="delivery.jsp">Delivery</a>
-                    <a href="OtherServices.JSP">Other</a>
+                    <a href="OtherServices.jsp">Other</a>
                 </div>
             </li>
             <li class="dropdown">
                 <a href="#">More</a>
                 <div class="dropdown-content">
-                    <a href="#">Gallery</a>
+                    <a href="Gallery.jsp">Gallery</a>
                     <a href="#">Events</a>
                     <a href="Contact.jsp">Contact</a>
                 </div>

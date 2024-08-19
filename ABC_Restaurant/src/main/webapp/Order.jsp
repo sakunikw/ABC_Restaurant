@@ -256,7 +256,7 @@
         <ul>
             <li><a href="Home.jsp">Home</a></li>
             <li><a href="Menu.jsp">Menu</a></li>
-            <li><a href="About.jsp">About Us</a></li>
+            <li><a href="AboutUs.jsp">About Us</a></li>
             <li class="dropdown">
                 <a href="#">Services</a>
                 <div class="dropdown-content">

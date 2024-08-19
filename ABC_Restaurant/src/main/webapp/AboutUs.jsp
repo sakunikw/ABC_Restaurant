@@ -269,7 +269,7 @@
 
             <p>At ABC Restaurant, we are more than just a place to eat; we are a destination for memorable experiences. Whether you’re joining us for a romantic dinner, a family gathering, or a special celebration, we are committed to making every visit exceptional.</p>
 
-            <img src="restaurant_interior.jpg" alt="ABC Restaurant Interior">
+            <img src="images/RestaurantInterior.jpg" alt="ABC Restaurant Interior">
             
             <p>Thank you for choosing ABC Restaurant. We look forward to serving you soon!</p>
         </div>

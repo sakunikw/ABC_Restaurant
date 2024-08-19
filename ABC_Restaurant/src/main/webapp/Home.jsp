@@ -27,9 +27,13 @@
             color: inherit;
         }
 
-        h1, h2, h3, h4, h5, h6 {
+         h2,h3, h4, h5, h6 {
             font-family: 'Merriweather', serif;
             color: #222;
+        }
+        h1{
+        font-family: 'Merriweather', serif;
+            color: white;
         }
 
         p {
@@ -158,7 +162,7 @@
 
         /* Header Styles */
         header {
-            background: url('img/restaurant-header.jpg') no-repeat center center/cover;
+            background: url('images/Home.jpg') no-repeat center center/cover;
             color: white;
             padding: 100px 0;
             text-align: center;
@@ -312,6 +316,7 @@
 
         /* Featured Dish Section */
         .featured-dish {
+         
             text-align: center;
         }
 
@@ -414,9 +419,12 @@
             </li>
         </ul>
         <div class="nav-search">
-            <input type="text" placeholder="Search...">
-            <button>Search</button>
-        </div>
+    <input type="text" id="search-input" placeholder="Search...">
+    <button id="search-button">Search</button>
+</div>
+
+        
+        
     </nav>
 
     <header>
@@ -433,7 +441,12 @@
     <section class="section promo-section">
         <h2>Special Offer!</h2>
         <p>Get 20% off on your first order</p>
-        <button>Order Now</button>
+        <a href="Order.jsp">
+    <button>Order Now</button>
+</a>
+
+   
+
     </section>
 
     <section class="section query-section">
@@ -453,11 +466,15 @@
     </section>
 
     <section class="section featured-dish">
-        <h2>Featured Dish</h2>
-        <img src="img/featured-dish.jpg" alt="Featured Dish">
-        <p>Delicious pasta with fresh ingredients</p>
-        <button>Order Now</button>
-    </section>
+    <h2>Featured Dish</h2>
+    <img src="images/pasta.jpg" alt="Featured Dish">
+    <p>Delicious pasta with fresh ingredients</p>
+    <!-- Wrap the button inside the anchor tag -->
+    <a id="btn" href="Menu.jsp">
+        <button id="btn">Check menu</button>
+    </a>
+</section>
+
 
     <section class="section customer-reviews">
         <h2>What Our Customers Say</h2>
@@ -479,5 +496,51 @@
     </footer>
 
 </body>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('search-button').addEventListener('click', function() {
+        var query = document.getElementById('search-input').value.trim();
+        if (query) {
+            performSearch(query);
+        }
+    });
+
+    document.getElementById('search-input').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            document.getElementById('search-button').click();
+        }
+    });
+
+    function performSearch(query) {
+        fetch(`/search?query=${encodeURIComponent(query)}`)
+            .then(response => response.json())
+            .then(data => {
+                displayResults(data);
+            })
+            .catch(error => console.error('Error:', error));
+    }
+
+    function displayResults(data) {
+        const resultsContainer = document.getElementById('search-results');
+        resultsContainer.innerHTML = '';
+
+        if (data.length === 0) {
+            resultsContainer.innerHTML = '<p>No results found.</p>';
+        } else {
+            data.forEach(item => {
+                const resultElement = document.createElement('div');
+                resultElement.classList.add('search-result-item');
+                resultElement.innerHTML = `
+                    <h3>${item.name}</h3>
+                    <p>${item.description}</p>
+                `;
+                resultsContainer.appendChild(resultElement);
+            });
+        }
+    }
+});
+</script>
+
 
 </html>
