@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABC Restaurant - Order</title>
+    <title>ABC Restaurant - Checkout</title>
     <style>
         /* Reset Styles */
         * {
@@ -156,69 +156,56 @@
             background-color: #2ecc71;
         }
 
-        /* Order Page Specific Styles */
-        .order-section {
+        /* Checkout Page Specific Styles */
+        .checkout-section {
             background-color: #fff;
             padding: 60px 20px;
             margin: 20px 0;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            max-width: 1200px;
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        .order-section:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .order-section h2 {
+        .checkout-section h2 {
             font-size: 2em;
             margin-bottom: 20px;
             text-align: center;
         }
 
-        .order-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
+        .form-group {
+            margin-bottom: 20px;
         }
 
-        .order-form {
-            width: 100%;
-            max-width: 600px;
-            margin: 20px 0;
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
         }
 
-        .order-form input[type="text"],
-        .order-form input[type="email"],
-        .order-form input[type="number"],
-        .order-form select,
-        .order-form textarea {
+        .form-group input, .form-group select {
             width: 100%;
             padding: 10px;
-            margin: 10px 0;
             border-radius: 5px;
             border: 1px solid #ccc;
-            font-size: 16px;
+            font-size: 1em;
         }
 
-        .order-form button {
+        .checkout-button {
             background-color: #27ae60;
             color: white;
             border: none;
-            padding: 12px 20px;
-            cursor: pointer;
+            padding: 10px 20px;
             border-radius: 5px;
-            font-size: 16px;
+            cursor: pointer;
+            font-size: 1em;
             transition: background-color 0.3s;
-            margin-top: 20px;
+            display: block;
+            margin: 20px auto;
         }
 
-        .order-form button:hover {
+        .checkout-button:hover {
             background-color: #2ecc71;
         }
 
@@ -247,9 +234,7 @@
         }
     </style>
 </head>
-
 <body>
-
     <nav>
         <ul>
             <li><a href="Home.jsp">Home</a></li>
@@ -261,14 +246,14 @@
                 <div class="dropdown-content">
                     <a href="Order.jsp">Order</a>
                     <a href="SignIn.jsp">Reservation</a>
-                    <a href="Delivery.jsp">Delivery</a>
+                    <a href="delivery.jsp">Delivery</a>
                     <a href="OtherServices.jsp">Other</a>
                 </div>
             </li>
             <li class="dropdown">
                 <a href="#">More</a>
                 <div class="dropdown-content">
-                    <a href="#">Gallery</a>
+                    <a href="Gallery.jsp">Gallery</a>
                     <a href="#">Events</a>
                     <a href="Contact.jsp">Contact</a>
                 </div>
@@ -280,62 +265,48 @@
         </div>
     </nav>
 
-    <section class="order-section">
-        <h2>Place Your Order</h2>
-        <div class="order-content">
-            <form class="order-form" id="orderForm" action="OrderServlet" method="post">
-    <input type="text" name="name" id="name" placeholder="Your Name" required>
-    <input type="email" name="email" id="email" placeholder="Your Email" required>
-    <input type="text" name="phone" id="phone" placeholder="Your Phone Number" required>
-    <select name="foodItem" id="foodItem" required>
-        <option value="" disabled selected>Select a Dish</option>
-        <option value="dish1">Dish 1</option>
-        <option value="dish2">Dish 2</option>
-        <option value="dish3">Dish 3</option>
-        <!-- Add more dishes as needed -->
-    </select>
-    <textarea name="address" id="address" rows="5" placeholder="Delivery Address" required></textarea>
-    <input type="number" name="quantity" id="quantity" placeholder="Quantity" required min="1">
-    <button type="submit">Submit Order</button>
-</form>
-
-        </div>
+    <section class="checkout-section">
+        <h2>Checkout</h2>
+        <form id="payment-form">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required>
+            </div>
+            <div class="form-group">
+                <label for="payment-method">Payment Method:</label>
+                <select id="payment-method" name="payment-method" required>
+                    <option value="credit_card">Credit Card</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="cash">Cash on Delivery</option>
+                </select>
+            </div>
+            <button type="submit" class="checkout-button">Complete Purchase</button>
+        </form>
     </section>
 
     <footer>
         <p>&copy; 2024 ABC Restaurant. All rights reserved.</p>
-        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        <p><a href="Contact.jsp">Contact Us</a> | <a href="Privacy.jsp">Privacy Policy</a></p>
     </footer>
 
     <script>
-        function addToCart() {
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const foodItem = document.getElementById('foodItem').value;
-            const address = document.getElementById('address').value;
-            const quantity = document.getElementById('quantity').value;
-
-            if (name && email && phone && foodItem && address && quantity) {
-                const cartItem = {
-                    name,
-                    email,
-                    phone,
-                    foodItem,
-                    address,
-                    quantity
-                };
-
-                let cart = JSON.parse(localStorage.getItem('cart')) || [];
-                cart.push(cartItem);
-                localStorage.setItem('cart', JSON.stringify(cart));
-                alert('Item added to cart!');
-            } else {
-                alert('Please fill in all fields.');
-            }
-        }
+        document.getElementById('payment-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Simulate payment processing
+            alert('Payment processing is not implemented in this demo.');
+            // Typically, you would send the form data to the server here
+            // Example: fetch('/process-payment', { method: 'POST', body: new FormData(this) });
+            localStorage.removeItem('cart'); // Clear cart after payment
+            window.location.href = 'Home.jsp'; // Redirect to home page
+        });
     </script>
-
 </body>
-
 </html>

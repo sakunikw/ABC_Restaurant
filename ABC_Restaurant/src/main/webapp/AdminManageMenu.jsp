@@ -122,12 +122,12 @@
 <div class="container">
     <div class="sidebar">
         <h2>Admin Menu</h2>
-        <a href="admin_dashboard.jsp" class="nav-link">Dashboard</a>
-        <a href="manage_users.jsp" class="nav-link">Manage Users</a>
-        <a href="manage_menus.jsp" class="nav-link">Manage Menus</a>
-        <a href="view_reservations.jsp" class="nav-link">View Reservations</a>
-        <a href="reports.jsp" class="nav-link">Reports</a>
-        <a href="settings.jsp" class="nav-link">Settings</a>
+        <a href="AdminDashboard.jsp" class="nav-link">Dashboard</a>
+        <a href="AdminUserManage.jsp" class="nav-link">Manage Users</a>
+        <a href="AdminManageMenu.jsp" class="nav-link">Manage Menus</a>
+        <a href="AdminManageReservation.jsp" class="nav-link">View Reservations</a>
+        <a href="AdminReports.jsp" class="nav-link">Reports</a>
+        <a href="AdminSettings.jsp" class="nav-link">Settings</a>
         <a href="logout.jsp" class="nav-link">Logout</a>
     </div>
 

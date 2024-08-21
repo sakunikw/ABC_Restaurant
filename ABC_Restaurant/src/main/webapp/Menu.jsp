@@ -9,9 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ABC Restaurant - Menu</title>
     <style>
-        /* Include the same styles as in Home.jsp */
+       
 
-        /* Reset Styles */
+      
         * {
             margin: 0;
             padding: 0;
@@ -277,18 +277,22 @@
     </style>
 </head>
 
-<body>
 
+
+
+</head>
+<body>
     <nav>
         <ul>
             <li><a href="Home.jsp">Home</a></li>
             <li><a href="Menu.jsp">Menu</a></li>
             <li><a href="AboutUs.jsp">About Us</a></li>
+             <li><a href="Cart.jsp">MyCart</a></li>
             <li class="dropdown">
                 <a href="#">Services</a>
                 <div class="dropdown-content">
                     <a href="Order.jsp">Order</a>
-                    <a href="Reservation.jsp">Reservation</a>
+                    <a href="SignIn.jsp">Reservation</a>
                     <a href="delivery.jsp">Delivery</a>
                     <a href="OtherServices.jsp">Other</a>
                 </div>
@@ -310,10 +314,10 @@
 
     <section class="menu-section">
         <h2>Our Menu</h2>
-        
+
         <!-- Menu Type Filter -->
         <div class="menu-type">
-            <select>
+            <select id="menu-filter">
                 <option value="all">All</option>
                 <option value="appetizers">Appetizers</option>
                 <option value="main_courses">Main Courses</option>
@@ -321,7 +325,7 @@
             </select>
         </div>
 
-        <div class="menu-item">
+        <div class="menu-item" data-id="1" data-price="12.99">
             <div>
                 <h3>Grilled Chicken Salad</h3>
                 <p>Fresh greens topped with grilled chicken, served with a light vinaigrette.</p>
@@ -332,7 +336,7 @@
             </div>
         </div>
 
-        <div class="menu-item">
+        <div class="menu-item" data-id="2" data-price="14.99">
             <div>
                 <h3>Spaghetti Carbonara</h3>
                 <p>Classic Italian pasta with creamy sauce, pancetta, and parmesan cheese.</p>
@@ -343,7 +347,7 @@
             </div>
         </div>
 
-        <div class="menu-item">
+        <div class="menu-item" data-id="3" data-price="10.99">
             <div>
                 <h3>Margherita Pizza</h3>
                 <p>Traditional pizza with fresh tomatoes, mozzarella cheese, and basil.</p>
@@ -354,7 +358,7 @@
             </div>
         </div>
 
-        <div class="menu-item">
+        <div class="menu-item" data-id="4" data-price="11.99">
             <div>
                 <h3>Beef Burger</h3>
                 <p>Juicy beef patty with lettuce, tomato, cheese, and special sauce.</p>
@@ -365,7 +369,7 @@
             </div>
         </div>
 
-        <div class="menu-item">
+        <div class="menu-item" data-id="5" data-price="7.99">
             <div>
                 <h3>Chocolate Lava Cake</h3>
                 <p>Rich chocolate cake with a gooey center, served with vanilla ice cream.</p>
@@ -380,6 +384,7 @@
         <div class="cart-summary">
             <p>Total Items: <span id="cart-items">0</span></p>
             <p>Total Price: <span id="cart-total">$0.00</span></p>
+            <button id="checkout-button">Checkout</button>
         </div>
     </section>
 
@@ -389,20 +394,51 @@
     </footer>
 
     <script>
-        // Simple cart functionality (for demonstration purposes)
-        let cartItems = 0;
-        let cartTotal = 0;
+        // Cart Management
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartItemsElem = document.getElementById('cart-items');
+        const cartTotalElem = document.getElementById('cart-total');
+
+        function updateCart() {
+            const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+            const totalPrice = cart.reduce((acc, item) => acc + item.quantity * item.price, 0).toFixed(2);
+
+            cartItemsElem.textContent = totalItems;
+            cartTotalElem.textContent = `$${totalPrice}`;
+        }
+
+        function addToCart(id, price) {
+            const existingItem = cart.find(item => item.id === id);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ id, price, quantity: 1 });
+            }
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCart();
+        }
+
+        function removeFromCart(id) {
+            const index = cart.findIndex(item => item.id === id);
+            if (index > -1) {
+                cart.splice(index, 1);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCart();
+            }
+        }
 
         document.querySelectorAll('.cart-button').forEach(button => {
             button.addEventListener('click', () => {
-                cartItems++;
-                cartTotal += parseFloat(button.previousElementSibling.textContent.slice(1));
-                document.getElementById('cart-items').textContent = cartItems;
-                document.getElementById('cart-total').textContent = `$${cartTotal.toFixed(2)}`;
+                const itemId = button.parentElement.parentElement.dataset.id;
+                const itemPrice = parseFloat(button.parentElement.parentElement.dataset.price);
+                addToCart(itemId, itemPrice);
             });
         });
+
+    
+        });
+
+        updateCart();
     </script>
-
 </body>
-
 </html>

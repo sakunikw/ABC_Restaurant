@@ -42,7 +42,7 @@
 
         /* Navigation Styles */
         nav {
-            background-color: #34495e;
+            background-color: #433d44;
             padding: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             position: sticky;
@@ -162,7 +162,7 @@
 
         /* Header Styles */
         header {
-            background: url('images/Home.jpg') no-repeat center center/cover;
+            background: url('images/gallery1.jpg') no-repeat center center/cover;
             color: white;
             padding: 100px 0;
             text-align: center;
@@ -279,6 +279,7 @@
 
         /* Query Section */
         .query-section form {
+          background-color: #e74c3c;
             display: flex;
             flex-direction: column;
             gap: 15px;
@@ -316,7 +317,7 @@
 
         /* Featured Dish Section */
         .featured-dish {
-         
+         background-color : #ccb8b3;
             text-align: center;
         }
 
@@ -343,7 +344,7 @@
 
         /* Customer Reviews Section */
         .customer-reviews .review {
-            background-color: #f7f7f7;
+            background-color: #ecdec9;
             padding: 20px;
             margin: 20px 0;
             border-radius: 10px;
@@ -389,6 +390,25 @@
         footer a:hover {
             color: #f39c12;
         }
+        
+        /* Sign In Button Styles */
+    .signin-btn {
+        background-color: #27ae60;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin-left: 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: background-color 0.3s;
+        text-align: center;
+        align-self: center;
+    }
+
+    .signin-btn:hover {
+        background-color: #2ecc71;
+    }
     </style>
 </head>
 
@@ -400,12 +420,13 @@
             <li><a href="Menu.jsp">Menu</a></li>
            
             <li><a href="About.jsp">About Us</a></li>
+             <li><a href="Cart.jsp">MyCart</a></li>
             <li class="dropdown">
                 <a href="#">Services</a>
                 <div class="dropdown-content">
                     <a href="Order.jsp">Order</a>
-                    <a href="Reservation.jsp">Reservation</a>
-                    <a href="Delivery.jsp">Delivery</a>
+                    <a href="SignIn.jsp">Reservation</a>
+                    <a href="delivery.jsp">Delivery</a>
                     <a href="OtherServices.JSP">Other</a>
                 </div>
             </li>
@@ -423,16 +444,18 @@
     <button id="search-button">Search</button>
 </div>
 
-        
-        
+</div>
+    <!-- Added Sign In Button -->
+    <a href="SignIn.jsp" class="signin-btn">Sign In</a>
+</nav>
+
+         
     </nav>
 
     <header>
         <div class="overlay"></div>
         <div class="content">
-            <div class="logo">
-                <img src="img/logo.png" alt="ABC Restaurant Logo">
-            </div>
+            
             <h1>Welcome to ABC Restaurant</h1>
             <p>Experience the best dining in the city</p>
         </div>
@@ -449,21 +472,7 @@
 
     </section>
 
-    <section class="section query-section">
-        <h2>Have a Query?</h2>
-        <form>
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Enter your name">
-
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email">
-
-            <label for="query">Query</label>
-            <textarea id="query" name="query" rows="5" placeholder="Enter your query"></textarea>
-
-            <button type="submit">Submit Query</button>
-        </form>
-    </section>
+  
 
     <section class="section featured-dish">
     <h2>Featured Dish</h2>
