@@ -184,6 +184,21 @@
             text-align: center;
         }
 
+        /* Menu Type Dropdown */
+        .menu-type {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .menu-type select {
+            padding: 10px;
+            font-size: 1em;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 200px;
+        }
+
         .menu-item {
             display: flex;
             justify-content: space-between;
@@ -212,6 +227,23 @@
             font-weight: bold;
         }
 
+        /* Cart Button */
+        .cart-button {
+            background-color: #e67e22;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+            margin-left: 10px;
+        }
+
+        .cart-button:hover {
+            background-color: #d35400;
+        }
+
         /* Footer Styles */
         footer {
             background-color: #2c3e50;
@@ -235,6 +267,13 @@
         footer a:hover {
             color: #f39c12;
         }
+
+        /* Cart Summary */
+        .cart-summary {
+            margin-top: 20px;
+            font-size: 1.1em;
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -244,7 +283,6 @@
         <ul>
             <li><a href="Home.jsp">Home</a></li>
             <li><a href="Menu.jsp">Menu</a></li>
-            
             <li><a href="AboutUs.jsp">About Us</a></li>
             <li class="dropdown">
                 <a href="#">Services</a>
@@ -273,12 +311,25 @@
     <section class="menu-section">
         <h2>Our Menu</h2>
         
+        <!-- Menu Type Filter -->
+        <div class="menu-type">
+            <select>
+                <option value="all">All</option>
+                <option value="appetizers">Appetizers</option>
+                <option value="main_courses">Main Courses</option>
+                <option value="desserts">Desserts</option>
+            </select>
+        </div>
+
         <div class="menu-item">
             <div>
                 <h3>Grilled Chicken Salad</h3>
                 <p>Fresh greens topped with grilled chicken, served with a light vinaigrette.</p>
             </div>
-            <div class="price">$12.99</div>
+            <div>
+                <div class="price">$12.99</div>
+                <button class="cart-button">Add to Cart</button>
+            </div>
         </div>
 
         <div class="menu-item">
@@ -286,7 +337,10 @@
                 <h3>Spaghetti Carbonara</h3>
                 <p>Classic Italian pasta with creamy sauce, pancetta, and parmesan cheese.</p>
             </div>
-            <div class="price">$14.99</div>
+            <div>
+                <div class="price">$14.99</div>
+                <button class="cart-button">Add to Cart</button>
+            </div>
         </div>
 
         <div class="menu-item">
@@ -294,7 +348,10 @@
                 <h3>Margherita Pizza</h3>
                 <p>Traditional pizza with fresh tomatoes, mozzarella cheese, and basil.</p>
             </div>
-            <div class="price">$10.99</div>
+            <div>
+                <div class="price">$10.99</div>
+                <button class="cart-button">Add to Cart</button>
+            </div>
         </div>
 
         <div class="menu-item">
@@ -302,7 +359,10 @@
                 <h3>Beef Burger</h3>
                 <p>Juicy beef patty with lettuce, tomato, cheese, and special sauce.</p>
             </div>
-            <div class="price">$11.99</div>
+            <div>
+                <div class="price">$11.99</div>
+                <button class="cart-button">Add to Cart</button>
+            </div>
         </div>
 
         <div class="menu-item">
@@ -310,7 +370,16 @@
                 <h3>Chocolate Lava Cake</h3>
                 <p>Rich chocolate cake with a gooey center, served with vanilla ice cream.</p>
             </div>
-            <div class="price">$7.99</div>
+            <div>
+                <div class="price">$7.99</div>
+                <button class="cart-button">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Cart Summary -->
+        <div class="cart-summary">
+            <p>Total Items: <span id="cart-items">0</span></p>
+            <p>Total Price: <span id="cart-total">$0.00</span></p>
         </div>
     </section>
 
@@ -318,6 +387,21 @@
         <p>&copy; 2024 ABC Restaurant. All rights reserved.</p>
         <p><a href="Contact.jsp">Contact Us</a> | <a href="Privacy.jsp">Privacy Policy</a></p>
     </footer>
+
+    <script>
+        // Simple cart functionality (for demonstration purposes)
+        let cartItems = 0;
+        let cartTotal = 0;
+
+        document.querySelectorAll('.cart-button').forEach(button => {
+            button.addEventListener('click', () => {
+                cartItems++;
+                cartTotal += parseFloat(button.previousElementSibling.textContent.slice(1));
+                document.getElementById('cart-items').textContent = cartItems;
+                document.getElementById('cart-total').textContent = `$${cartTotal.toFixed(2)}`;
+            });
+        });
+    </script>
 
 </body>
 

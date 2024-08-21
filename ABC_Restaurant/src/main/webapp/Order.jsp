@@ -7,8 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ABC Restaurant - Order</title>
     <style>
-        /* Include the same styles as in Home.jsp */
-
         /* Reset Styles */
         * {
             margin: 0;
@@ -284,28 +282,58 @@
     <section class="order-section">
         <h2>Place Your Order</h2>
         <div class="order-content">
-            <form class="order-form" action="ProcessOrder.jsp" method="post">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <input type="text" name="phone" placeholder="Your Phone Number" required>
-                <select name="foodItem" required>
-                    <option value="" disabled selected>Select a Dish</option>
-                    <option value="dish1">Dish 1</option>
-                    <option value="dish2">Dish 2</option>
-                    <option value="dish3">Dish 3</option>
-                    <!-- Add more dishes as needed -->
-                </select>
-                <textarea name="address" rows="5" placeholder="Delivery Address" required></textarea>
-                <input type="number" name="quantity" placeholder="Quantity" required min="1">
-                <button type="submit">Submit Order</button>
-            </form>
+            <form class="order-form" id="orderForm" action="OrderServlet" method="post">
+    <input type="text" name="name" id="name" placeholder="Your Name" required>
+    <input type="email" name="email" id="email" placeholder="Your Email" required>
+    <input type="text" name="phone" id="phone" placeholder="Your Phone Number" required>
+    <select name="foodItem" id="foodItem" required>
+        <option value="" disabled selected>Select a Dish</option>
+        <option value="dish1">Dish 1</option>
+        <option value="dish2">Dish 2</option>
+        <option value="dish3">Dish 3</option>
+        <!-- Add more dishes as needed -->
+    </select>
+    <textarea name="address" id="address" rows="5" placeholder="Delivery Address" required></textarea>
+    <input type="number" name="quantity" id="quantity" placeholder="Quantity" required min="1">
+    <button type="submit">Submit Order</button>
+</form>
+
         </div>
     </section>
 
     <footer>
         <p>&copy; 2024 ABC Restaurant. All rights reserved.</p>
-        <p><a href="Contact.jsp">Contact Us</a> | <a href="PrivacyPolicy.jsp">Privacy Policy</a> | <a href="TermsConditions.jsp">Terms & Conditions</a></p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
     </footer>
+
+    <script>
+        function addToCart() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const foodItem = document.getElementById('foodItem').value;
+            const address = document.getElementById('address').value;
+            const quantity = document.getElementById('quantity').value;
+
+            if (name && email && phone && foodItem && address && quantity) {
+                const cartItem = {
+                    name,
+                    email,
+                    phone,
+                    foodItem,
+                    address,
+                    quantity
+                };
+
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                cart.push(cartItem);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                alert('Item added to cart!');
+            } else {
+                alert('Please fill in all fields.');
+            }
+        }
+    </script>
 
 </body>
 

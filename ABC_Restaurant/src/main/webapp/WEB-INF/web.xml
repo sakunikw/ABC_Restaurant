@@ -22,6 +22,18 @@
   	<description></description>
   	<servlet-class>com.RestaurantController.SearchServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ReservationServlet</servlet-name>
+  	<display-name>ReservationServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.RestaurantController.ReservationServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>OrderServlet</servlet-name>
+  	<display-name>OrderServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.RestaurantController.OrderServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>AdminController</servlet-name>
   	<url-pattern>/AdminController</url-pattern>
@@ -33,5 +45,13 @@
   <servlet-mapping>
   	<servlet-name>SearchServlet</servlet-name>
   	<url-pattern>/SearchServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ReservationServlet</servlet-name>
+  	<url-pattern>/ReservationServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>OrderServlet</servlet-name>
+  	<url-pattern>/OrderServlet</url-pattern>
   </servlet-mapping>
 </web-app>
