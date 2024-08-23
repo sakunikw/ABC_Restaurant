@@ -6,13 +6,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import com.ABC_Restaurant.dao.OrderDao;
 import com.Restaurant.Model.Order;
 
 
-@WebServlet("/orderServlet")
-public class orderServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+public class NewOrder extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String name = request.getParameter("name");
         String email = request.getParameter("email");
@@ -23,12 +25,8 @@ public class orderServlet extends HttpServlet {
 
         Order order = new Order(name, email, phone, foodItem, address, quantity);
         OrderDao orderDao = new OrderDao();
-        boolean success = orderDao.saveOrder(order);
+        orderDao.saveOrder(order);
 
-        if (success) {
-            response.sendRedirect("OrderConfirmation.jsp");
-        } else {
-            response.sendRedirect("OrderError.jsp");
-        }
+        response.sendRedirect("orderSuccess.jsp");
     }
 }

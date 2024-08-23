@@ -1,21 +1,24 @@
 package com.Restaurant.Service;
 
-
-
-
 import com.ABC_Restaurant.dao.ReservationDao;
 import com.Restaurant.Model.Reservation;
-import java.sql.SQLException;
 
 public class ReservationService {
-    private ReservationDao reservationDAO = new ReservationDao();
+    private ReservationDao reservationDao;
 
-    public void makeReservation(Reservation reservation) {
+    // Constructor to initialize ReservationDao
+    public ReservationService() {
+        this.reservationDao = new ReservationDao();
+    }
+
+    public boolean makeReservation(Reservation reservation) {
         try {
-            reservationDAO.saveReservation(reservation);
-        } catch (SQLException e) {
+            // Attempt to save the reservation
+            return reservationDao.saveReservation(reservation);
+        } catch (Exception e) {
+            // Log the exception and handle it appropriately
             e.printStackTrace();
-            // Handle exceptions appropriately
+            return false;
         }
     }
 }

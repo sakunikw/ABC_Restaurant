@@ -11,16 +11,16 @@
   	<servlet-class>com.RestaurantController.AdminController</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>UserController</servlet-name>
-  	<display-name>UserController</display-name>
+  	<servlet-name>OrderServlet</servlet-name>
+  	<display-name>OrderServlet</display-name>
   	<description></description>
-  	<servlet-class>com.RestaurantController.UserController</servlet-class>
+  	<servlet-class>com.RestaurantController.OrderServlet</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>SearchServlet</servlet-name>
-  	<display-name>SearchServlet</display-name>
+  	<servlet-name>NewOrder</servlet-name>
+  	<display-name>NewOrder</display-name>
   	<description></description>
-  	<servlet-class>com.RestaurantController.SearchServlet</servlet-class>
+  	<servlet-class>com.RestaurantController.NewOrder</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>ReservationServlet</servlet-name>
@@ -28,80 +28,30 @@
   	<description></description>
   	<servlet-class>com.RestaurantController.ReservationServlet</servlet-class>
   </servlet>
-  <servlet>
-  	<servlet-name>OrderServlet</servlet-name>
-  	<display-name>OrderServlet</display-name>
-  	<description></description>
-  	<servlet-class>com.RestaurantController.OrderServlet</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>Order</servlet-name>
-  	<display-name>Order</display-name>
-  	<description></description>
-  	<servlet-class>com.RestaurantController.Order</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>ConfirmOrderServlet</servlet-name>
-  	<display-name>ConfirmOrderServlet</display-name>
-  	<description></description>
-  	<servlet-class>com.RestaurantController.ConfirmOrderServlet</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>DeleteOrderServlet</servlet-name>
-  	<display-name>DeleteOrderServlet</display-name>
-  	<description></description>
-  	<servlet-class>com.RestaurantController.DeleteOrderServlet</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>deleteOrderServlet</servlet-name>
-  	<display-name>deleteOrderServlet</display-name>
-  	<description></description>
-  	<servlet-class>com.RestaurantController.DeleteOrderServlet</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>orderServlet</servlet-name>
-  	<display-name>orderServlet</display-name>
-  	<description></description>
-  	<servlet-class>com.RestaurantController.orderServlet</servlet-class>
-  </servlet>
+  
+  
+  
+
+  
   <servlet-mapping>
   	<servlet-name>AdminController</servlet-name>
   	<url-pattern>/AdminController</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>UserController</servlet-name>
-  	<url-pattern>/UserController</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>SearchServlet</servlet-name>
-  	<url-pattern>/SearchServlet</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>ReservationServlet</servlet-name>
-  	<url-pattern>/ReservationServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>OrderServlet</servlet-name>
   	<url-pattern>/OrderServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>Order</servlet-name>
-  	<url-pattern>/Order</url-pattern>
+  	<servlet-name>NewOrder</servlet-name>
+  	<url-pattern>/NewOrder</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>ConfirmOrderServlet</servlet-name>
-  	<url-pattern>/ConfirmOrderServlet</url-pattern>
+  	<servlet-name>ReservationServlet</servlet-name>
+  	<url-pattern>/ReservationServlet</url-pattern>
   </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>DeleteOrderServlet</servlet-name>
-  	<url-pattern>/DeleteOrderServlet</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>deleteOrderServlet</servlet-name>
-  	<url-pattern>/deleteOrderServlet</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>orderServlet</servlet-name>
-  	<url-pattern>/orderServlet</url-pattern>
-  </servlet-mapping>
+  
+ 
+  
+  
+  
 </web-app>

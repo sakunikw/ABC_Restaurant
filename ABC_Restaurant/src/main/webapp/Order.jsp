@@ -20,6 +20,8 @@
             background-color: #f0f0f0;
             color: #444;
             line-height: 1.6;
+                 background: url('images/gallery3.jpg') no-repeat center center fixed;
+            background-size: cover;
         }
 
         a {
@@ -261,14 +263,14 @@
                 <div class="dropdown-content">
                     <a href="Order.jsp">Order</a>
                     <a href="SignIn.jsp">Reservation</a>
-                    <a href="Delivery.jsp">Delivery</a>
+                    <a href="delivery.jsp">Delivery</a>
                     <a href="OtherServices.jsp">Other</a>
                 </div>
             </li>
             <li class="dropdown">
                 <a href="#">More</a>
                 <div class="dropdown-content">
-                    <a href="#">Gallery</a>
+                    <a href="Gallery.jsp">Gallery</a>
                     <a href="#">Events</a>
                     <a href="Contact.jsp">Contact</a>
                 </div>
@@ -283,7 +285,12 @@
     <section class="order-section">
         <h2>Place Your Order</h2>
         <div class="order-content">
-            <form class="order-form" id="orderForm" action="OrderServlet" method="post">
+            
+           <form class="order-form" id="orderForm" action="NewOrder" method="post">
+
+
+
+            
     <input type="text" name="name" id="name" placeholder="Your Name" required>
     <input type="email" name="email" id="email" placeholder="Your Email" required>
     <input type="text" name="phone" id="phone" placeholder="Your Phone Number" required>

@@ -20,6 +20,8 @@
             background-color: #f0f0f0;
             color: #444;
             line-height: 1.6;
+             background: url('images/gallery3.jpg') no-repeat center center fixed;
+            background-size: cover;
         }
 
         a {
@@ -247,7 +249,7 @@
             <li><a href="Home.jsp">Home</a></li>
             <li><a href="Menu.jsp">Menu</a></li>
             <li><a href="About.jsp">About Us</a></li>
-             <li><a href="Cart.jsp">MyCart</a></li>
+            <li><a href="Cart.jsp">My Cart</a></li>
             <li class="dropdown">
                 <a href="#">Services</a>
                 <div class="dropdown-content">
@@ -275,7 +277,7 @@
     <!-- Reservation Section -->
     <section class="reservation">
         <h2>Table Reservation</h2>
-        <form action="submit_reservation.jsp" method="post">
+        <form action="ReservationServlet" method="post">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
 
@@ -312,8 +314,22 @@
             <button type="submit">Reserve Table</button>
         </form>
         <div class="confirmation">
-            <!-- This section can be populated dynamically after form submission -->
-            <p>Your reservation request has been submitted. We will contact you soon to confirm.</p>
+            <%
+                String success = request.getParameter("success");
+                if ("true".equals(success)) {
+            %>
+                <p>Your reservation request has been submitted. We will contact you soon to confirm.</p>
+            <%
+                } else if ("false".equals(success)) {
+            %>
+                <p>Sorry, there was an issue with your reservation. Please try again later.</p>
+            <%
+                } else {
+            %>
+                <p>Please fill out the form to make a reservation.</p>
+            <%
+                }
+            %>
         </div>
     </section>
 

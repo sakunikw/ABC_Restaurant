@@ -419,7 +419,7 @@
             <li><a href="Home.jsp">Home</a></li>
             <li><a href="Menu.jsp">Menu</a></li>
            
-            <li><a href="About.jsp">About Us</a></li>
+            <li><a href="AboutUs.jsp">About Us</a></li>
              <li><a href="Cart.jsp">MyCart</a></li>
             <li class="dropdown">
                 <a href="#">Services</a>
@@ -450,7 +450,7 @@
 </nav>
 
          
-    </nav>
+   
 
     <header>
         <div class="overlay"></div>
@@ -462,10 +462,10 @@
     </header>
 
     <section class="section promo-section">
-        <h2>Special Offer!</h2>
-        <p>Get 20% off on your first order</p>
-        <a href="Order.jsp">
-    <button>Order Now</button>
+        <h2>Book your table easily!!!</h2>
+        <p>Get 20% off on your first booking</p>
+        <a href="SignIn.jsp">
+    <button>Make a Reservation</button>
 </a>
 
    

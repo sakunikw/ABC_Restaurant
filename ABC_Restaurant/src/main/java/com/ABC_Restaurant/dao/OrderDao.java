@@ -1,11 +1,9 @@
 package com.ABC_Restaurant.dao;
 
-
+import com.Restaurant.Model.Order;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
-import com.Restaurant.Model.Order;
 
 public class OrderDao {
     

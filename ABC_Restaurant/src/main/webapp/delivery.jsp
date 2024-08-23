@@ -20,6 +20,8 @@
             background-color: #f0f0f0;
             color: #444;
             line-height: 1.6;
+             background: url('images/gallery3.jpg') no-repeat center center fixed;
+            background-size: cover;
         }
 
         a {
@@ -247,7 +249,7 @@
         <ul>
             <li><a href="Home.jsp">Home</a></li>
             <li><a href="Menu.jsp">Menu</a></li>
-            <li><a href="About.jsp">About Us</a></li>
+            <li><a href="AboutUs.jsp">About Us</a></li>
              <li><a href="Cart.jsp">MyCart</a></li>
             <li class="dropdown">
                 <a href="#">Services</a>
@@ -261,7 +263,7 @@
             <li class="dropdown">
                 <a href="#">More</a>
                 <div class="dropdown-content">
-                    <a href="#">Gallery</a>
+                    <a href="Gallery.jsp">Gallery</a>
                     <a href="#">Events</a>
                     <a href="Contact.jsp">Contact</a>
                 </div>

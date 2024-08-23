@@ -22,6 +22,9 @@
             background-color: #f0f0f0;
             color: #444;
             line-height: 1.6;
+                         background: url('images/galleryx.jpg') no-repeat center center fixed;
+            background-size: cover;
+            
         }
 
         a {
