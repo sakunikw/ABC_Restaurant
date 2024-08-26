@@ -1,80 +1,89 @@
 package com.Restaurant.Model;
 
+import java.sql.Date;
+import java.sql.Time;
+
 public class Reservation {
+    private int id;
     private String name;
     private String email;
     private String phone;
-    private String date;
-    private String time;
-    private int guests;
+    private Date reservationDate;
+    private Time reservationTime;
+    private int numGuests;
     private String specialRequests;
+    private int confirmed;
 
-    // Constructor
-    public Reservation(String name, String email, String phone, String date, String time, int guests, String specialRequests) {
-        this.name = name;
-        this.email = email;
-        this.phone = phone;
-        this.date = date;
-        this.time = time;
-        this.guests = guests;
-        this.specialRequests = specialRequests;
+    // Getters and Setters for each field
+    public int getId() {
+        return id;
     }
 
-    // Getters
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public int getGuests() {
-        return guests;
-    }
-
-    public String getSpecialRequests() {
-        return specialRequests;
-    }
-
-    // Setters
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
     }
 
     public void setPhone(String phone) {
         this.phone = phone;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public Date getReservationDate() {
+        return reservationDate;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setReservationDate(Date reservationDate) {
+        this.reservationDate = reservationDate;
     }
 
-    public void setGuests(int guests) {
-        this.guests = guests;
+    public Time getReservationTime() {
+        return reservationTime;
+    }
+
+    public void setReservationTime(Time reservationTime) {
+        this.reservationTime = reservationTime;
+    }
+
+    public int getNumGuests() {
+        return numGuests;
+    }
+
+    public void setNumGuests(int numGuests) {
+        this.numGuests = numGuests;
+    }
+
+    public String getSpecialRequests() {
+        return specialRequests;
     }
 
     public void setSpecialRequests(String specialRequests) {
         this.specialRequests = specialRequests;
+    }
+
+    public int getConfirmed() {
+        return confirmed;
+    }
+
+    public void setConfirmed(int confirmed) {
+        this.confirmed = confirmed;
     }
 }

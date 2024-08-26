@@ -21,7 +21,7 @@
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
 
-                <button type="submit">Sign In</button> <a href="Reservation.jsp"></a></p>
+              <p>  <button type="submit">Sign In</button> <a href="Reservation.jsp"></a></p>
                 <p>Don't have an account? <a href="SignUpPage.jsp">Sign up here</a></p>
             </form>
         </div>

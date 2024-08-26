@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - View Orders</title>
+    <title>Admin - Manage Users</title>
     <style>
         /* Add styles similar to your previous pages for consistency */
         body {
@@ -97,7 +97,7 @@
 </head>
 <body>
 
-    <h1>Admin - View Orders</h1>
+    <h1>Admin - Manage Users</h1>
 
     <table>
         <thead>
@@ -106,10 +106,8 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone</th>
-                <th>Food Item</th>
-                <th>Address</th>
-                <th>Quantity</th>
-                <th>Order Date</th>
+                <th>PASSWORD</th>
+                
                 <th>Actions</th>
             </tr>
         </thead>
@@ -124,7 +122,7 @@
                     conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/abc_restaurant", "root", "Soc735@#");
 
                     // Retrieve orders from the database
-                    String sql = "SELECT * FROM orders";
+                    String sql = "SELECT * FROM users";
                     stmt = conn.createStatement();
                     rs = stmt.executeQuery(sql);
 
@@ -134,20 +132,16 @@
                         String name = rs.getString("name");
                         String email = rs.getString("email");
                         String phone = rs.getString("phone");
-                        String foodItem = rs.getString("foodItem");
-                        String address = rs.getString("address");
-                        int quantity = rs.getInt("quantity");
-                        Timestamp orderDate = rs.getTimestamp("orderDate");
+                        String password = rs.getString("password");
+                        
 
                         out.println("<tr>");
                         out.println("<td>" + id + "</td>");
                         out.println("<td>" + name + "</td>");
                         out.println("<td>" + email + "</td>");
                         out.println("<td>" + phone + "</td>");
-                        out.println("<td>" + foodItem + "</td>");
-                        out.println("<td>" + address + "</td>");
-                        out.println("<td>" + quantity + "</td>");
-                        out.println("<td>" + orderDate + "</td>");
+                        out.println("<td>" + password + "</td>");
+                        
                         out.println("<td class='action-buttons'>");
                         out.println("<form action='ConfirmOrderServlet' method='post'>");
                         out.println("<input type='hidden' name='id' value='" + id + "'>");

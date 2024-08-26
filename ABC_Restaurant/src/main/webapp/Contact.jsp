@@ -232,7 +232,7 @@
     <button id="search-button">Search</button>
 </div>
 
-</div>
+
     <!-- Added Sign In Button -->
     <a href="SignIn.jsp" class="signin-btn">Sign In</a>
 </nav>
@@ -241,7 +241,7 @@
 
     <div class="container">
         <h1>Contact Us</h1>
-        <form action="submit_contact" method="post">
+        <form action="ContactServlet" method="post">
             <label for="name">Your Name:</label>
             <input type="text" id="name" name="name" required>
             

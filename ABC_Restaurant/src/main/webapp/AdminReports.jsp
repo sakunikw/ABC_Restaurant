@@ -104,11 +104,13 @@
 </div>
 
 <div class="container">
-    <div class="sidebar">
+     <div class="sidebar">
         <h2>Admin Menu</h2>
         <a href="AdminDashboard.jsp" class="nav-link">Dashboard</a>
-        <a href="AdminUserManage.jsp" class="nav-link">Manage Users</a>
+        <a href="AdminManageUsers.jsp" class="nav-link">Manage Users</a>
+         <a href="AdminManageOrders.jsp" class="nav-link">Manage orders</a>
         <a href="AdminManageMenu.jsp" class="nav-link">Manage Menus</a>
+         <a href="AdminManageMessege.jsp" class="nav-link">Manage Messages</a>
         <a href="AdminManageReservation.jsp" class="nav-link">View Reservations</a>
         <a href="AdminReports.jsp" class="nav-link">Reports</a>
         <a href="AdminSettings.jsp" class="nav-link">Settings</a>

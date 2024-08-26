@@ -20,7 +20,7 @@
             background-color: #f0f0f0;
             color: #444;
             line-height: 1.6;
-             background: url('images/gallery3.jpg') no-repeat center center fixed;
+            background: url('images/gallery3.jpg') no-repeat center center fixed;
             background-size: cover;
         }
 
@@ -287,56 +287,37 @@
             <label for="phone">Phone Number:</label>
             <input type="tel" id="phone" name="phone" required>
 
-            <label for="date">Reservation Date:</label>
-            <input type="date" id="date" name="date" required>
+             <label for="reservationDate">Reservation Date:</label>
+    <input type="text" id="reservationDate" name="reservationDate" placeholder="dd/MM/yyyy" required>
 
-            <label for="time">Reservation Time:</label>
-            <input type="time" id="time" name="time" required>
 
-            <label for="guests">Number of Guests:</label>
-            <select id="guests" name="guests" required>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="more">More than 10</option>
-            </select>
+            <label for="reservationTime">Reservation Time:</label>
+    <input type="text" id="reservationTime" name="reservationTime" placeholder="hh.mm a" required>
 
-            <label for="special-requests">Special Requests:</label>
-            <textarea id="special-requests" name="special_requests" rows="4"></textarea>
+            <label for="numGuests">Number of Guests:</label>
+    <input type="number" id="numGuests" name="numGuests" required>
+    
+            <label for="requests">Special Requests:</label>
+            <textarea id="requests" name="requests" rows="4" placeholder="Any special requests or allergies?"></textarea>
 
-            <button type="submit">Reserve Table</button>
+            <button type="submit">Submit Reservation</button>
         </form>
+
+        <!-- Confirmation Message -->
         <div class="confirmation">
-            <%
-                String success = request.getParameter("success");
-                if ("true".equals(success)) {
-            %>
-                <p>Your reservation request has been submitted. We will contact you soon to confirm.</p>
-            <%
-                } else if ("false".equals(success)) {
-            %>
-                <p>Sorry, there was an issue with your reservation. Please try again later.</p>
-            <%
-                } else {
-            %>
-                <p>Please fill out the form to make a reservation.</p>
-            <%
-                }
+            <% 
+            String confirmationMessage = (String) request.getAttribute("confirmationMessage");
+            if (confirmationMessage != null) {
+                out.println(confirmationMessage);
+            }
             %>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 ABC Restaurant. All rights reserved.</p>
-        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        <p>&copy; 2024 ABC Restaurant. All Rights Reserved.</p>
+        <p><a href="Contact.jsp">Contact Us</a> | <a href="Privacy.jsp">Privacy Policy</a></p>
     </footer>
 
 </body>

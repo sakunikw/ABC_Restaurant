@@ -444,7 +444,7 @@
     <button id="search-button">Search</button>
 </div>
 
-</div>
+
     <!-- Added Sign In Button -->
     <a href="SignIn.jsp" class="signin-btn">Sign In</a>
 </nav>
@@ -488,12 +488,12 @@
     <section class="section customer-reviews">
         <h2>What Our Customers Say</h2>
         <div class="review">
-            <h4>John Doe</h4>
+            <h4>John </h4>
             <p>"The food was absolutely wonderful!"</p>
             <div class="rating">★★★★★</div>
         </div>
         <div class="review">
-            <h4>Jane Smith</h4>
+            <h4>Smith</h4>
             <p>"Best dining experience I've ever had."</p>
             <div class="rating">★★★★★</div>
         </div>
