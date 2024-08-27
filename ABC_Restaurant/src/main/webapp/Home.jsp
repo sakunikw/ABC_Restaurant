@@ -440,8 +440,10 @@
             </li>
         </ul>
         <div class="nav-search">
-    <input type="text" id="search-input" placeholder="Search...">
-    <button id="search-button">Search</button>
+    <form id="search-form" action="/SearchServiceServlet" method="GET">
+        <input type="text" id="search-input" name="query" placeholder="Search...">
+        <button type="submit" id="search-button">Search</button>
+    </form>
 </div>
 
 

@@ -34,6 +34,18 @@
   	<description></description>
   	<servlet-class>com.RestaurantController.ContactServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>SearchServiceServlet</servlet-name>
+  	<display-name>SearchServiceServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.RestaurantController.SearchServiceServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AddMenuServlet</servlet-name>
+  	<display-name>AddMenuServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.RestaurantController.AddMenuServlet</servlet-class>
+  </servlet>
   
   
   
@@ -58,6 +70,14 @@
   <servlet-mapping>
   	<servlet-name>ContactServlet</servlet-name>
   	<url-pattern>/ContactServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SearchServiceServlet</servlet-name>
+  	<url-pattern>/SearchServiceServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AddMenuServlet</servlet-name>
+  	<url-pattern>/AddMenuServlet</url-pattern>
   </servlet-mapping>
   
  

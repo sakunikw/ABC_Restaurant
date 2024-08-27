@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.sql.Connection, java.sql.DriverManager, java.sql.PreparedStatement, java.sql.ResultSet, java.sql.SQLException" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -120,7 +121,7 @@
 </div>
 
 <div class="container">
-     <div class="sidebar">
+    <div class="sidebar">
         <h2>Admin Menu</h2>
         <a href="AdminDashboard.jsp" class="nav-link">Dashboard</a>
         <a href="AdminManageUsers.jsp" class="nav-link">Manage Users</a>
@@ -135,11 +136,12 @@
 
     <div class="main-content">
         <h2>Manage Menu</h2>
-        <a href="add_menu_item.jsp" class="btn add-item-btn">Add New Item</a>
+        <a href="AdminAddMenu.jsp" class="btn add-item-btn">Add New Item</a>
+        
         <table>
             <thead>
                 <tr>
-                    <th>Item ID</th>
+                    <th>ID</th>
                     <th>Name</th>
                     <th>Description</th>
                     <th>Price</th>
@@ -148,19 +150,60 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- Example Menu Item Row -->
-                <tr>
-                    <td>1</td>
-                    <td>Cheeseburger</td>
-                    <td>Juicy beef patty with cheese and all the fixings</td>
-                    <td>$9.99</td>
-                    <td>Burgers</td>
-                    <td>
-                        <a href="edit_menu_item.jsp?id=1" class="btn">Edit</a>
-                        <a href="delete_menu_item.jsp?id=1" class="btn">Delete</a>
-                    </td>
-                </tr>
-                <!-- Add more menu item rows as needed -->
+                <%
+                    Connection conn = null;
+                    PreparedStatement stmt = null;
+                    ResultSet rs = null;
+                    try {
+                        // Establish connection to the database
+                        Class.forName("com.mysql.cj.jdbc.Driver");
+                        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/abc_restaurant", "root", "Soc735@#");
+
+                        // Retrieve menu items from the database
+                        String sql = "SELECT * FROM menu";
+                        stmt = conn.prepareStatement(sql);
+                        rs = stmt.executeQuery();
+
+                        // Display menu items in the table
+                        while (rs.next()) {
+                            int id = rs.getInt("id");
+                            String name = rs.getString("name");
+                            String description = rs.getString("description");
+                            double price = rs.getDouble("price");
+                            String category = rs.getString("category");
+
+                            out.println("<tr>");
+                            out.println("<td>" + id + "</td>");
+                            out.println("<td>" + name + "</td>");
+                            out.println("<td>" + description + "</td>");
+                            out.println("<td>" + price + "</td>");
+                            out.println("<td>" + category + "</td>");
+                            out.println("<td class='action-buttons'>");
+                            out.println("<form action='EditMenuServlet' method='post' style='display:inline;'>");
+                            out.println("<input type='hidden' name='id' value='" + id + "'>");
+                            out.println("<button type='submit' class='btn'>Edit</button>");
+                            out.println("</form>");
+                            out.println("<form action='DeleteMenuServlet' method='post' style='display:inline;'>");
+                            out.println("<input type='hidden' name='id' value='" + id + "'>");
+                            out.println("<button type='submit' class='btn'>Delete</button>");
+                            out.println("</form>");
+                            out.println("</td>");
+                            out.println("</tr>");
+                        }
+
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    } finally {
+                        // Close resources
+                        try {
+                            if (rs != null) rs.close();
+                            if (stmt != null) stmt.close();
+                            if (conn != null) conn.close();
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                %>
             </tbody>
         </table>
     </div>
