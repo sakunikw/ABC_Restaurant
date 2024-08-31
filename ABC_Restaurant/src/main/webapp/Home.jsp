@@ -433,7 +433,7 @@
             <li class="dropdown">
                 <a href="#">More</a>
                 <div class="dropdown-content">
-                    <a href="#">Gallery</a>
+                    <a href="Gallery.jsp">Gallery</a>
                     <a href="#">Events</a>
                     <a href="Contact.jsp">Contact</a>
                 </div>

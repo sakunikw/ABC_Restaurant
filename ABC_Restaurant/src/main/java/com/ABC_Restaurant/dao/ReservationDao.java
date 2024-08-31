@@ -126,4 +126,9 @@ public class ReservationDao {
 
         return reservation;
     }
+
+	public boolean saveReservation(Reservation reservation) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

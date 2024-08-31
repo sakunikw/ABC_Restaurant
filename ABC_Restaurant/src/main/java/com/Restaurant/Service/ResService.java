@@ -1,32 +1,35 @@
 package com.Restaurant.Service;
 
-import java.util.List;
+
 
 import com.ABC_Restaurant.dao.ReservationDao;
 import com.Restaurant.Model.Reservation;
 
-public class ReservationService {
+import java.util.List;
+
+public class ResService {
     private ReservationDao reservationDao;
 
     // Constructor to initialize ReservationDao
-    public ReservationService() {
+    public ResService() {
         this.reservationDao = new ReservationDao();
+    }
+
+    // Setter for ReservationDao (used in tests)
+    public void setReservationDao(ReservationDao reservationDao) {
+        this.reservationDao = reservationDao;
     }
 
     // Method to handle making a reservation
     public boolean makeReservation(Reservation reservation) {
         try {
-            // Attempt to save the reservation
             reservationDao.addReservation(reservation);
             return true;
         } catch (Exception e) {
-            // Log the exception and handle it appropriately
             e.printStackTrace();
             return false;
         }
     }
-
-    // Additional methods to handle other business logic
 
     // Method to confirm a reservation
     public boolean confirmReservation(int reservationId) {
@@ -59,9 +62,4 @@ public class ReservationService {
     public Reservation getReservationById(int reservationId) {
         return reservationDao.getReservationById(reservationId);
     }
-
-	public void setReservationDao(ReservationDao reservationDAOMock) {
-		// TODO Auto-generated method stub
-		
-	}
 }
